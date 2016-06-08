@@ -51,6 +51,7 @@ class America_Post_Formats_Public {
 
 		$this->America_Post_Formats = $America_Post_Formats;
 		$this->version = $version;
+		$this->template_loader = new America_Post_Formats_Template_Loader;
 
 	}
 
@@ -100,4 +101,11 @@ class America_Post_Formats_Public {
 
 	}
 
+	public function apf_loop_template( $templates, $post_type ) {
+		if ( $post_type === 'link' ) {
+	    array_unshift( $templates, AMERICA_POST_FORMATS_DIR . 'public/templates/single-link.php' );
+  	}
+
+	  return $templates;
+	}
 }

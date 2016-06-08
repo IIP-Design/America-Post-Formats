@@ -96,28 +96,12 @@ class America_Post_Formats {
 	 */
 	private function load_dependencies() {
 
-		/**
-		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-america-post-formats-loader.php';
-
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-america-post-formats-i18n.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the admin area.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-america-post-formats-admin.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-america-post-formats-public.php';
+		require_once AMERICA_POST_FORMATS_DIR . 'includes/class-america-post-formats-loader.php';
+		require_once AMERICA_POST_FORMATS_DIR . 'includes/class-america-post-formats-i18n.php';
+		require_once AMERICA_POST_FORMATS_DIR . 'includes/class-gamajo-template-loader.php';
+		require_once AMERICA_POST_FORMATS_DIR . 'includes/class-america-post-formats-template-loader.php';
+		require_once AMERICA_POST_FORMATS_DIR . 'admin/class-america-post-formats-admin.php';
+		require_once AMERICA_POST_FORMATS_DIR . 'public/class-america-post-formats-public.php';
 
 		$this->loader = new America_Post_Formats_Loader();
 
@@ -169,6 +153,7 @@ class America_Post_Formats {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_filter( 'corona_loop_template', $plugin_public, 'apf_loop_template', 10, 2 );
 
 	}
 
