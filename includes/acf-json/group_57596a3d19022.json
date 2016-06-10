@@ -1,0 +1,56 @@
+{
+    "key": "group_57596a3d19022",
+    "title": "Link",
+    "fields": [
+        {
+            "key": "field_57596a5ad634c",
+            "label": "Link URL",
+            "name": "america_link_post_format",
+            "type": "url",
+            "instructions": "Please enter a full URL, for example: https:\/\/www.google.com",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https:\/\/www.google.com"
+        },
+        {
+            "key": "field_575ab14ef75a4",
+            "label": "",
+            "name": "america_link_post_format_new_window",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Open link in a new tab?",
+            "default_value": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_format",
+                "operator": "==",
+                "value": "link"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1465563610
+}

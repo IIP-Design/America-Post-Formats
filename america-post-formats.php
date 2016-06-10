@@ -46,7 +46,7 @@ require AMERICA_POST_FORMATS_DIR . 'includes/class-america-post-formats.php';
 	* then kicking off the plugin from this point in the file does
 	* not affect the page life cycle.
 	*
-	* @since    1.0.0
+	* @since 1.0.0
 	*/
 
 function run_America_Post_Formats() {
