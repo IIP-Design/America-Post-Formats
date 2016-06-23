@@ -72,20 +72,28 @@ class America_Post_Formats_Public {
 		* @since 1.0.0
 		*/
 
-	public function america_post_format_load_template( $templates, $post_type ) {
+	/* public function america_post_format_load_template( $templates, $post_type ) {
 
 		// @note The requirements changed, so we no longer need to load a custom template for the `link` post_format.
 		// Leaving this here to provide an example of how you'd do so.
 
-		/* if ( $post_type === 'link' && ! is_single() ) {
-			array_unshift( $templates, $this->template_loader->get_template_part( 'link-archive', $name = null, $load = false ) );
-		} */
-
-		// Return an empty array, which has the effect of removing the `link` post_format from the loop
 		if ( $post_type === 'link' && ! is_single() ) {
-			return array();
+			array_unshift( $templates, $this->template_loader->get_template_part( 'link-archive', $name = null, $load = false ) );
 		}
 
-	  return $templates;
+		return $templates;
+	} */
+
+	public function exclude_post_format( $query ) {
+		if ( is_archive() || is_search() || is_home() ) {
+			$tax_query = array( array(
+				'taxonomy' => 'post_format',
+				'field' => 'slug',
+				'terms' => array( 'post-format-link' ),
+				'operator' => 'NOT IN',
+			) );
+
+			$query->set( 'tax_query', $tax_query );
+		}
 	}
 }

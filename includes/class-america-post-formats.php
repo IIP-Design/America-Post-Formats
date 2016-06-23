@@ -78,7 +78,7 @@ class America_Post_Formats {
 
 	public function __construct() {
 		$this->America_Post_Formats = 'america-post-formats';
-		$this->version = '1.1.0';
+		$this->version = '1.2.0';
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_public_hooks();
@@ -166,7 +166,7 @@ class America_Post_Formats {
 
 	private function define_public_hooks() {
 		$plugin_public = new America_Post_Formats_Public( $this->get_America_Post_Formats(), $this->get_version() );
-		$this->loader->add_filter( 'corona_loop_template', $plugin_public, 'america_post_format_load_template', 10, 2 );
+		$this->loader->add_action( 'pre_get_posts', $plugin_public, 'exclude_post_format' );
 	}
 
 	/**
