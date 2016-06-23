@@ -84,16 +84,26 @@ class America_Post_Formats_Public {
 		return $templates;
 	} */
 
-	public function exclude_post_format( $query ) {
-		if ( is_archive() || is_search() || is_home() ) {
-			$tax_query = array( array(
-				'taxonomy' => 'post_format',
-				'field' => 'slug',
-				'terms' => array( 'post-format-link' ),
-				'operator' => 'NOT IN',
-			) );
 
-			$query->set( 'tax_query', $tax_query );
+	/**
+		* Exclude the `link` post_format from the main_query
+		*
+		* @param $query Object - The Wordpress $query
+		* @since 1.3.0
+		*/
+
+	public function exclude_post_format( $query ) {
+		if ( $query->is_main_query() ) {
+			if ( is_archive() || is_search() || is_home() ) {
+				$tax_query = array( array(
+					'taxonomy' => 'post_format',
+					'field' => 'slug',
+					'terms' => array( 'post-format-link' ),
+					'operator' => 'NOT IN',
+				) );
+
+				$query->set( 'tax_query', $tax_query );
+			}
 		}
 	}
 }

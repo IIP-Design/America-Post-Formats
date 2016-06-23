@@ -3,7 +3,7 @@
 /**********************************************************************************************************
 Plugin Name:    America Post Formats
 Description:    A set of common fields, templates, and functionaly specific to Wordpress post formats
-Version:        1.2.0
+Version:        1.3.0
 Author:         Office of Design, U.S. Department of State
 License:        MIT
 Text Domain:    america

@@ -78,7 +78,7 @@ class America_Post_Formats {
 
 	public function __construct() {
 		$this->America_Post_Formats = 'america-post-formats';
-		$this->version = '1.2.0';
+		$this->version = '1.3.0';
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_public_hooks();
