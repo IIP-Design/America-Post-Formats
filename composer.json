@@ -1,5 +1,5 @@
 {
-    "name": "usstatedept/america-post-formats",
+    "name": "iip-design/america-post-formats",
     "type": "wordpress-plugin",
     "description" : "A set of common fields, templates, and functionaly specific to Wordpress post formats",
     "authors": [
